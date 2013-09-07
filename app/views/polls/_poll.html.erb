@@ -1,0 +1,5 @@
+<p>
+	<%= poll.question %>
+	<%= link_to 'X', [poll.event, poll], method: :delete,
+		data: { confirm: 'Are you sure?' } %>
+</p>

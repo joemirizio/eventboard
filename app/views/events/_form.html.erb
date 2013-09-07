@@ -1,0 +1,29 @@
+<%= form_for @event do |f| %>
+
+	<% if @event and @event.errors.any? %>
+		<div id='errors'>
+			<strong>
+				There were <%= pluralize(@event.errors.count, 'errors') %>
+			</strong>
+			<ul>
+				<% @event.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<%= f.label :name %>
+	<br />
+	<%= f.text_field :name %>
+
+	<br />
+
+	<%= f.label :description %>
+	<br />
+	<%= f.text_area :description %>
+
+	<br />
+	<br />
+	<%= f.submit %>
+<% end %>
