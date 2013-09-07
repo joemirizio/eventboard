@@ -2,12 +2,14 @@
 <p><%= @event.description %></p>
 
 <h2>Polls</h2>
-<%= render @event.polls %>
+<ul>
+	<%= render @event.polls %>
+</ul>
 
 <h2>Add Poll</h2>
 <%= form_for([@event, @event.polls.build]) do |f| %>
-	<h3><%= f.label :question %></h3>
-	<h3><%= f.text_field :question %></h3>
+	<%= f.label :question %>
+	<%= f.text_field :question %>
 <% end %>
 	
 

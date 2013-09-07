@@ -1,5 +1,14 @@
-<p>
+<li>
 	<%= poll.question %>
 	<%= link_to 'X', [poll.event, poll], method: :delete,
 		data: { confirm: 'Are you sure?' } %>
-</p>
+	<ul>
+		<%= render poll.choices %>
+	</ul>
+
+	<%= form_for([poll, poll.choices.build]) do |f| %>
+		<%= f.label :name, 'Choice:' %>
+		<%= f.text_field :name %>
+		<%= f.submit '+' %>
+	<% end %>
+</li>

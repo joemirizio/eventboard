@@ -1,0 +1,5 @@
+<li>
+	<%= choice.name %>
+	<%= link_to 'X', [choice.poll, choice], method: :delete,
+		data: { confirm: 'Are you sure?' } %>
+</li>

@@ -1,8 +1,13 @@
 EventBoard::Application.routes.draw do
 	
 	root to: 'events#index'
+
 	resources :events do
 		resources :polls
+	end
+
+	resources :polls do
+		resources :choices
 	end
 
   # The priority is based upon order of creation: first created -> highest priority.
