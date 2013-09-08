@@ -4,7 +4,7 @@ class ChoicesController < ApplicationController
 		@poll = Poll.find(params[:poll_id])
 		@choice = @poll.choices.create(choice_params)
 
-		redirect_to event_path(@poll.event)
+		redirect_to poll_path(@poll)
 	end
 
 
@@ -13,7 +13,7 @@ class ChoicesController < ApplicationController
 		@choice = @poll.choices.find(params[:id])
 		@choice.destroy
 
-		redirect_to event_path(@poll.event)
+		redirect_to poll_path(@poll)
 	end
 
 private

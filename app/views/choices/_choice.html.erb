@@ -1,5 +1,5 @@
-<li>
-	<%= choice.name %>
+<li class='button-container'>
+	<%= link_to choice.name, '#', class: 'button button' %>
 	<%= link_to 'X', [choice.poll, choice], method: :delete,
-		data: { confirm: 'Are you sure?' } %>
+		data: { confirm: 'Are you sure?' }, class: 'button button-cancel' %>
 </li>

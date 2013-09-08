@@ -1,0 +1,230 @@
+@import 'bootstrap';
+
+$vanilla: #f8f4bf;
+$dark_vanilla: #d4d0a4;
+$chocolate: #635642;
+$dark_chocolate: #312a1f;
+$orange: #e99500;
+$dark_orange: #c76400;
+$mint: #7cab91;
+$dark_mint: #658c77;
+$cherry: #b15637;
+$dark_cherry: #783823;
+
+body {
+	background-color: $vanilla;
+	text-shadow: 0 3px 0 $dark_vanilla;
+	font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
+	font-weight: 800;
+}
+
+.container {
+	margin-top: 20px;
+}
+
+ul {
+	margin-left: 0;
+}
+li {
+	list-style: none;
+	line-height: 1.2em;
+}
+
+h1 {
+	font-family: 'Kavoon', 'Times', serif;
+	color: $cherry;
+	font-size: 6em;
+	margin: 30px 0 50px;
+	line-height: 1em;
+}
+
+h2 {
+	font-weight: 800;
+	font-size: 3em;
+}
+
+h3 {
+	margin: 0 0 50px;
+	font-size: 2.5em;
+	font-style: italic;
+}
+
+a:hover, a:active, a:focus {
+	text-decoration: none;
+}
+
+.header_logo {
+	background-color: $mint;
+	padding: 60px 0;
+	text-align: center;
+	width: 100%;
+	color: $vanilla;
+	text-shadow: 0 3px 0 $dark_mint;
+	position: relative;
+}
+
+.button {
+	background-color: $orange;
+	box-shadow: 0 3px 0 $dark_vanilla;
+	font-weight: 800;
+	padding: 30px;
+	text-align: center;
+	text-shadow: 0 3px $dark_orange;
+	font-size: 3em;
+	color: $vanilla;
+	margin: 20px;
+	display: block;
+	width: 300px;
+	float: left;
+	line-height: 1em;
+
+	p {
+		margin-top: 10px;
+		line-height: 0.5em;
+	}
+	small {
+		font-size: 0.5em;
+		line-height: 0.5em;
+	}
+	&:hover, &:active {
+		background-color: $dark_orange;
+		color: $vanilla;
+	}
+}
+
+input.button {
+	font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
+	border: none;
+	display: block;
+	/*padding: 11px 30px;*/
+	font-size: 3em;
+	width: 300px;
+	width: 100%;
+}
+
+li .button {
+	background-color: $mint;
+	text-shadow: 0 3px 0 $dark_mint;
+	&:hover, &:active {
+		background-color: $dark_mint;
+	}
+}
+
+.button-container {
+	@extend .clearfix;
+	width: 100%;
+	position: relative;
+	margin: 10px 0;
+
+	.button:nth-child(1) {
+		width: 795px;
+		margin: 0;
+	}
+	.button:nth-child(2) {
+		margin: 0;
+		width: 25px;
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		font-size: 2em;
+	}
+}
+
+.button-block {
+	width: 100%;
+	margin: 10px 0;
+	padding: 20px 0;
+}
+
+.button-small {
+	width: 100px;
+	height: 100px;
+}
+
+.button-cancel, li .button-cancel {
+	background-color: $cherry;
+	text-shadow: 0 3px 0 $dark_cherry;
+	&:hover {
+		background-color: $dark_cherry;
+	}
+}
+
+.button-action, li .button-action {
+	background-color: $orange;
+	text-shadow: 0 3px 0 $dark_orange;
+	&:hover {
+		background-color: $dark_orange;
+	}
+}
+
+
+label {
+	margin: 20px 0 10px;
+	font-size: 2em;
+	color: $mint;
+	font-weight: 800;
+}
+
+.field_with_errors label {
+	color: $cherry;
+	&::before {
+		content: '*'
+	}
+}
+
+input[type='text'], textarea {
+	background-color: $chocolate;
+	color: $vanilla;
+	text-shadow: 0 3px 0 $dark_chocolate;
+	width: 100%;
+	font-size: 3em;
+	height: auto;
+	font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
+	font-weight: 800;
+	line-height: 1em;
+	border-radius: 0;
+	border: none;
+	box-shadow: 0 3px 0 $dark_vanilla;
+	padding: 10px;
+	margin-right: -20px;
+	&:active, &:focus {
+		outline: none;
+		box-shadow: 0 3px 0 $dark_vanilla;
+	}
+}
+
+.errors {
+	background-color: $cherry;
+	font-size: 2em;
+	text-shadow: 0 3px 0 $dark_cherry;
+	color: $vanilla;
+	padding: 20px;
+	line-height: 1em;
+	li {
+		list-style-type: square;
+	}
+}
+
+
+.form-single-line {
+	@extend .clearfix;
+	position: relative;
+	// TODO Move to a bottom button group
+	margin-bottom: 50px;
+	input {
+		width: auto;
+		height: auto;
+		display: inline;
+		float: left;
+		margin: 0;
+		&[type='submit'] {
+			padding: 10px 30px;
+			font-size: 3em;
+		}
+		&[type='text'] {
+			// TODO Make fluid
+			width: 835px;
+		}
+	}
+}

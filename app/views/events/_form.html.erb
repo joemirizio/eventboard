@@ -1,10 +1,8 @@
 <%= form_for @event do |f| %>
 
 	<% if @event and @event.errors.any? %>
-		<div id='errors'>
-			<strong>
-				There were <%= pluralize(@event.errors.count, 'errors') %>
-			</strong>
+		<div class='errors'>
+			<p>There were <%= pluralize(@event.errors.count, 'error') %></p>
 			<ul>
 				<% @event.errors.full_messages.each do |message| %>
 					<li><%= message %></li>
@@ -14,16 +12,13 @@
 	<% end %>
 
 	<%= f.label :name %>
-	<br />
 	<%= f.text_field :name %>
 
-	<br />
-
 	<%= f.label :description %>
-	<br />
 	<%= f.text_area :description %>
 
 	<br />
 	<br />
-	<%= f.submit %>
+	<%= f.submit submit_label, class: 'button button-block' %>
+	<%= link_to 'Cancel', events_path, class: 'button button-block button-cancel' %>
 <% end %>

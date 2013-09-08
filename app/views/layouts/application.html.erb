@@ -2,13 +2,25 @@
 <html>
 <head>
   <title>EventBoard</title>
+
+  <!-- CSS -->
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <link href='http://fonts.googleapis.com/css?family=Ultra' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,300,600' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Kavoon' rel='stylesheet' type='text/css'>
+
+  <!-- JS -->
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></head>script>
+  <![endif]-->
+
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div class='container'>
+		<%= yield %>
+	</div>
 </body>
 </html>

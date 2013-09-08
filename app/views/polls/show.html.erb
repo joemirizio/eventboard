@@ -1,0 +1,11 @@
+<h1><%= @poll.question %></h1>
+<h2>Choices</h2>
+<ul>
+	<%= render @poll.choices %>
+</ul>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', @poll.event, class: 'button button-block' %>
+<%= link_to 'Delete', [@poll.event, @poll], method: :delete,
+	data: { confirm: 'Are you sure?' }, class: 'button button-block button-cancel'  %>

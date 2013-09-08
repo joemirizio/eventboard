@@ -1,14 +1,5 @@
-<li>
-	<%= poll.question %>
+<li class='button-container'>
+	<%= link_to poll.question, poll, class: 'button' %>
 	<%= link_to 'X', [poll.event, poll], method: :delete,
-		data: { confirm: 'Are you sure?' } %>
-	<ul>
-		<%= render poll.choices %>
-	</ul>
-
-	<%= form_for([poll, poll.choices.build]) do |f| %>
-		<%= f.label :name, 'Choice:' %>
-		<%= f.text_field :name %>
-		<%= f.submit '+' %>
-	<% end %>
+		data: { confirm: 'Are you sure?' }, class: 'button button-cancel' %>
 </li>

@@ -1,19 +1,17 @@
 <h1><%= @event.name %></h1>
-<p><%= @event.description %></p>
+<h3><%= @event.description %></h3>
 
 <h2>Polls</h2>
 <ul>
 	<%= render @event.polls %>
 </ul>
 
-<h2>Add Poll</h2>
-<%= form_for([@event, @event.polls.build]) do |f| %>
-	<%= f.label :question %>
+<%= form_for([@event, @event.polls.build], html: { class: 'form-single-line'} ) do |f| %>
 	<%= f.text_field :question %>
+	<%= f.submit '+', class: 'button button-small' %>
 <% end %>
-	
 
-<%= link_to 'Back', events_path %>
-<%= link_to 'Edit', edit_event_path %>
+<%= link_to 'Back', events_path, class: 'button button-block' %>
+<%= link_to 'Edit', edit_event_path, class: 'button button-block' %>
 <%= link_to 'Delete', event_path, method: :delete, 
-	data: { confirm: 'Are you sure?' } %>
+	data: { confirm: 'Are you sure?' }, class: 'button button-block button-cancel'  %>

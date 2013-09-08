@@ -1,5 +1,9 @@
 class PollsController < ApplicationController
 
+	def show
+		@poll = Poll.find(params[:id])
+	end
+
 	def create
 		@event = Event.find(params[:event_id])
 		@poll = @event.polls.create(poll_params)
