@@ -1,6 +1,6 @@
 EventBoard::Application.routes.draw do
 	
-	root to: 'events#index'
+	root to: 'welcome#index'
 
 	resources :events do
 		resources :polls
