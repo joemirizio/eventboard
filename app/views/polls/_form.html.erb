@@ -1,4 +1,5 @@
-<%= form_for([@poll, @poll.choices.build], html: { class: 'form-single-line' } ) do |f| %>
-	<%= f.text_field :name %>
-	<%= f.submit '+', class: 'button' %>
+<%= form_for @poll do |f| %>
+	<%= f.label 'Question' %>
+	<%= f.text_field :question, class: 'input-block-level', placeholder: 'New Poll' %>
+	<%= f.submit 'Update', class: 'button button-block' %>
 <% end %>

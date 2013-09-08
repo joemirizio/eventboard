@@ -47,6 +47,7 @@ h3 {
 	margin: 0 0 50px;
 	font-size: 2.5em;
 	font-style: italic;
+	font-weight: 800;
 }
 
 a:hover, a:active, a:focus {
@@ -86,7 +87,7 @@ a:hover, a:active, a:focus {
 		font-size: 0.5em;
 		line-height: 0.5em;
 	}
-	&:hover, &:active {
+	&:hover, &:active, &:focus {
 		background-color: $dark_orange;
 		color: $vanilla;
 	}
@@ -186,8 +187,7 @@ input[type='text'], textarea {
 	border-radius: 0;
 	border: none;
 	box-shadow: 0 3px 0 $dark_vanilla;
-	padding: 10px;
-	margin-right: -20px;
+	padding: 20px;
 	&:active, &:focus {
 		outline: none;
 		box-shadow: 0 3px 0 $dark_vanilla;
@@ -219,12 +219,13 @@ input[type='text'], textarea {
 		float: left;
 		margin: 0;
 		&[type='submit'] {
-			padding: 10px 30px;
+			padding: 20px 30px;
 			font-size: 3em;
 		}
 		&[type='text'] {
 			// TODO Make fluid
-			width: 835px;
+			padding: 20px;
+			width: 815px;
 		}
 	}
 }

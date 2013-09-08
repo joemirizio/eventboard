@@ -11,6 +11,9 @@ class PollsController < ApplicationController
 		redirect_to event_path(@event)
 	end
 
+	def edit
+		@poll = Poll.find(params[:id])
+	end
 
 	def destroy
 		@event = Event.find(params[:event_id])

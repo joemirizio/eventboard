@@ -4,8 +4,9 @@
 	<%= render @poll.choices %>
 </ul>
 
-<%= render 'form' %>
+<%= render 'choices/form' %>
 
 <%= link_to 'Back', @poll.event, class: 'button button-block' %>
+<%= link_to 'Edit', edit_poll_path, class: 'button button-block' %>
 <%= link_to 'Delete', [@poll.event, @poll], method: :delete,
 	data: { confirm: 'Are you sure?' }, class: 'button button-block button-cancel'  %>
