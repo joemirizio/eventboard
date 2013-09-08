@@ -12,6 +12,7 @@
 
   <!-- JS -->
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= yield :javascript_includes %>
   <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></head>script>
   <![endif]-->

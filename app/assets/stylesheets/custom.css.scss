@@ -106,7 +106,7 @@ input.button {
 li .button {
 	background-color: $mint;
 	text-shadow: 0 3px 0 $dark_mint;
-	&:hover, &:active {
+	&:hover, &:active, &:focus {
 		background-color: $dark_mint;
 	}
 }
@@ -226,6 +226,68 @@ input[type='text'], textarea {
 			// TODO Make fluid
 			padding: 20px;
 			width: 815px;
+		}
+	}
+}
+
+.carousel-control {
+	top: 20px;
+	background-color: $orange;
+	font-size: 7em;
+	height: 50px;
+	width: 50px;
+	border-radius: 0;
+	padding: 10px;
+	border: 0;
+	opacity: 1;
+	box-shadow: 0 3px 0 $dark_vanilla;
+	outline: none;
+	text-shadow: 0 3px 0 $dark_orange;
+
+	&:hover, &:active, &:focus {
+		outline: none;
+		background-color: $dark_orange;
+		opacity: 1;
+	}
+
+}
+
+.carousel {
+	padding: 0 100px;
+	position: relative;
+
+	canvas {
+		margin: 20px 200px;
+	}
+
+	& .poll-choice {
+		&:nth-child(4n + 1) .button {
+			background-color: $chocolate;
+			text-shadow: 0 3px 0 $dark_chocolate;
+			&:hover, &:active, &:focus {
+				background-color: $dark_chocolate;
+			}
+		}
+		&:nth-child(4n + 2) .button {
+			background-color: $orange;
+			text-shadow: 0 3px 0 $dark_orange;
+			&:hover, &:active, &:focus {
+				background-color: $dark_orange;
+			}
+		}
+		&:nth-child(4n + 3) .button {
+			background-color: $mint;
+			text-shadow: 0 3px 0 $dark_mint;
+			&:hover, &:active, &:focus {
+				background-color: $dark_mint;
+			}
+		}
+		&:nth-child(4n + 4) .button {
+			background-color: $cherry;
+			text-shadow: 0 3px 0 $dark_cherry;
+			&:hover, &:active, &:focus {
+				background-color: $dark_cherry;
+			}
 		}
 	}
 }

@@ -1,0 +1,33 @@
+<% content_for :javascript_includes do %>
+	<%= javascript_include_tag "poll_chart.js" %>
+<% end %>
+
+<h1><%= @event.name %></h1>
+<div id="myCarousel" class="carousel slide">
+	<!--<ol class="carousel-indicators">
+		<% (0..@event.polls.length).each do |i| %>
+			<li data-target="#myCarousel" data-slide-to="<%= i %>" 
+			class="<%= 'active' if i == 0 %>"></li>
+		<% end %>
+	</ol>-->
+	<!-- Carousel items -->
+	<div class="carousel-inner">
+		<% @event.polls.each_with_index do |poll, i| %>
+			<div class="item<%= ' active' if i == 0 %> poll-chart-container">
+				<h2><%= poll.question %></h2>
+				<canvas class="poll-chart" id="poll-<%= poll.id %>" width="300px" height="300px"></canvas>
+				<ul>
+					<% poll.choices.each_with_index do |choice, i| %>
+						<li class="poll-choice" id="choice-<%= i %>" data-name="<%= choice.name %>" data-votes="<%= 1 + Random.rand(11) %>">
+							<%= link_to choice.name, poll_path, class: 'button button-block' %>
+						</li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+	</div>
+	<!-- Carousel nav -->
+	<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+	<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+<%= link_to 'Back', events_path, class: 'button button-block' %>
