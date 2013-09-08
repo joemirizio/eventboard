@@ -20,8 +20,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class='container'>
+	<div class='<%= 'container' unless request.path == root_path %>'>
 		<%= yield %>
 	</div>
 </body>
+
+<% unless request.path == root_path %>
+	<footer>
+		<%= link_to 'EventBoard', root_path %>
+	</footer>
+<% end %>
 </html>
