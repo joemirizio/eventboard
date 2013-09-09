@@ -12,7 +12,7 @@ EventBoard::Application.routes.draw do
 
 	get '/events/:id/overview', to: 'events#overview', as: 'overview_event'
 
-	post '/choices/vote/:id', to: 'choices#vote', as: 'vote_choice'
+	post '/choices/:id/vote', to: 'choices#vote', as: 'vote_choice'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

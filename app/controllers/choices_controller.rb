@@ -21,7 +21,10 @@ class ChoicesController < ApplicationController
 		@choice.votes += 1;
 		@choice.save()
 
-		redirect_to overview_event_path(@choice.poll.event)
+		@poll_index = params[:choice][:poll_index]
+
+		@event = @choice.poll.event
+		render 'events/overview'
 	end
 
 private

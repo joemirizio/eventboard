@@ -13,17 +13,20 @@
 		</ol>-->
 		<!-- Carousel items -->
 		<div class="carousel-inner">
-			<% @selected_index ||= 0 %>
-			<% @event.polls.each_with_index do |poll, i| %>
-				<div class="item<%= ' active' if i == @selected_index %> poll-chart-container">
+			<% @poll_index ||= 0 %>
+			<% @event.polls.each_with_index do |poll, poll_index| %>
+				<div class="item<%= ' active' if poll_index == @poll_index.to_i %> poll-chart-container">
 					<h2><%= poll.question %></h2>
 					<% unless poll.choices.empty? %>
 						<canvas class="poll-chart" id="poll-<%= poll.id %>" width="300px" height="300px"></canvas>
 						<ul>
-							<% poll.choices.each_with_index do |choice, i| %>
-								<li class="poll-choice" id="choice-<%= i %>" data-name="<%= choice.name %>" data-votes="<%= choice.votes %>">
+							<% poll.choices.each_with_index do |choice, choice_index| %>
+								<li class="poll-choice" id="choice-<%= choice.id %>" data-name="<%= choice.name %>" data-votes="<%= choice.votes %>">
 									<% choice_label = "#{choice.name} (#{choice.votes})" %>
-									<%= button_to choice_label, vote_choice_path(choice), class: 'button button-block', selected_index: i %>
+									<%= form_for choice, method: :post, url: vote_choice_path(choice) do |f| %>
+										<%= f.hidden_field :poll_index, value: poll_index %>
+										<%= f.submit choice_label, class: 'button button-block' %>
+									<% end %>
 								</li>
 							<% end %>
 						</ul>
