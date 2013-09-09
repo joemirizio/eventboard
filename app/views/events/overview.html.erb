@@ -28,7 +28,10 @@
 							<% end %>
 						</ul>
 					<% else %>
-						<h3>There are no choices :(</h3>
+						<br />
+						<div class='errors'>
+							<%= link_to 'There\'s no choices :(', poll_path(poll) %>
+						</div>
 					<% end %>
 				</div>
 			<% end %>
@@ -36,8 +39,10 @@
 		<!-- Carousel nav -->
 		<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 		<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+	</div>
 <% else %>
-	<h3>There's no polls :(</h3>
+	<div class='errors'>
+		<%= link_to 'There\'s no polls :(', event_path %>
+	</div>
 <% end %>
-</div>
 <%= link_to 'Back', events_path, class: 'button button-block' %>

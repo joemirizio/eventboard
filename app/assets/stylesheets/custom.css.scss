@@ -50,8 +50,12 @@ h3 {
 	font-weight: 800;
 }
 
-a:hover, a:active, a:focus {
-	text-decoration: none;
+a {
+	color: inherit;
+	&:hover, &:active, &:focus {
+		text-decoration: none;
+		color: $dark_vanilla;
+	}
 }
 
 .header_logo {
@@ -203,6 +207,7 @@ input[type='text'], textarea {
 	line-height: 1em;
 	li {
 		list-style-type: square;
+		margin-left: 20px;
 	}
 }
 
@@ -221,6 +226,7 @@ input[type='text'], textarea {
 		&[type='submit'] {
 			padding: 20px 30px;
 			font-size: 3em;
+			line-height: 1.36em;
 		}
 		&[type='text'] {
 			// TODO Make fluid
@@ -233,6 +239,7 @@ input[type='text'], textarea {
 .carousel-control {
 	top: 20px;
 	background-color: $orange;
+	font-weight: 800;
 	font-size: 7em;
 	height: 50px;
 	width: 50px;
