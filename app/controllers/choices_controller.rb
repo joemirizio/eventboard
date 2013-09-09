@@ -16,6 +16,14 @@ class ChoicesController < ApplicationController
 		redirect_to poll_path(@poll)
 	end
 
+	def vote
+		@choice = Choice.find(params[:id])
+		@choice.votes += 1;
+		@choice.save()
+
+		redirect_to overview_event_path(@choice.poll.event)
+	end
+
 private
 	def choice_params
 		params.require(:choice).permit(:name)

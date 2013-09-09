@@ -18,9 +18,8 @@ $(function () {
 	var options = {
 		segmentShowStroke: true,
 		segmentStrokeColor : "#d4d0a4",
+		segmentStrokeWidth : 3,
 		animationEasing : "easeOutQuart",
-		//animation: false,
-		//stepsanimationSteps: 0,
 	};
 
 	var colors = [
@@ -32,15 +31,16 @@ $(function () {
 
 	$('.poll-chart-container').each(function () {
 		var canvas = $('.poll-chart', this).get(0);
-		console.dir(canvas);
+		if (typeof canvas === 'undefined') { 
+			console.log('Could not find canvas');
+			return false;
+		}
 		var ctx = canvas.getContext("2d");
 		var data = [];
 		$('.poll-choice', this).each(function () {
-			console.dir($(this));
 			var votes = parseInt($(this).data('votes'), 10);
 			data.push({ value: votes, color: colors[data.length % colors.length] });
 		});
-		console.log(data);
 		var vote_chart = new Chart(ctx).Pie(data, options);
 	});
 

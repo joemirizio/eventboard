@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20130907044839) do
 
   create_table "choices", force: true do |t|
     t.string   "name"
+    t.integer  "votes"
     t.integer  "poll_id"
     t.datetime "created_at"
     t.datetime "updated_at"
