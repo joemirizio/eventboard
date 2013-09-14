@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EventBoard</title>
+	<title>EventBoard</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <link href='http://fonts.googleapis.com/css?family=Ultra' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:800,800italic' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Kavoon' rel='stylesheet' type='text/css'>
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<link href='http://fonts.googleapis.com/css?family=Ultra' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:800,800italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Kavoon' rel='stylesheet' type='text/css'>
 
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= yield :javascript_includes %>
-  <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></head>script>
-  <![endif]-->
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%# Load page-specific js files %>
+	<%= javascript_include_tag File.join(params[:controller], params[:action]), "data-turbolinks-track" => true %>
+	<%= yield :javascript_includes %>
+	<!--[if lt IE 9]>
+		  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></head>script>
+	  <![endif]-->
 
-  <%= csrf_meta_tags %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
 	<div class='<%= 'container' unless request.path == root_path %>'>

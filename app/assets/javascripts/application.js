@@ -16,4 +16,3 @@
 //= require turbolinks
 //= require twitter/bootstrap
 //= require Chart.min
-//= require_tree .

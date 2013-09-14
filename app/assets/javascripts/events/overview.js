@@ -2,9 +2,9 @@ $(function () {
 
 	var options = {
 		segmentShowStroke: true,
-		segmentStrokeColor : "#d4d0a4",
+		segmentStrokeColor : '#d4d0a4',
 		segmentStrokeWidth : 3,
-		animationEasing : "easeOutQuart",
+		animationEasing : 'easeOutQuart',
 	};
 
 	var colors = [
@@ -20,13 +20,12 @@ $(function () {
 	 * @param poll_container {HTMLDivElement} Containing div of the poll
 	 */
 	var update_poll = function(poll_container) {
-		console.log("updating poll");
 		var canvas = $('.poll-chart', poll_container).get(0);
 		if (typeof canvas === 'undefined') { 
-			console.log('Could not find canvas');
+			console.error('Could not find canvas');
 			return false;
 		}
-		var ctx = canvas.getContext("2d");
+		var ctx = canvas.getContext('2d');
 		var data = [];
 		$('.poll-choice', poll_container).each(function () {
 			var votes = parseInt($(this).data('votes'), 10);
