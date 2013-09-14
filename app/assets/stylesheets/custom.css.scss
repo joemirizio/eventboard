@@ -11,9 +11,39 @@ $dark_mint: #658c77;
 $cherry: #b15637;
 $dark_cherry: #783823;
 
+$text_shadow_distance: 0.05em;
+
+/* Extra small devices (phones, up to 480px) */
+/* No media query since this is the default in Bootstrap */
+body { 
+	font-size: 0.8em;
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen-sm) {
+	body {
+		font-size: 1em;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen-md) {
+	body {
+		font-size: 1em;
+	}
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: $screen-lg) {
+	body {
+		font-size: 1.2em;
+	}
+}
+
+
 body {
 	background-color: $vanilla;
-	text-shadow: 0 3px 0 $dark_vanilla;
+	text-shadow: 0 $text_shadow_distance 0 $dark_vanilla;
 	font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
 	font-weight: 800;
 }
@@ -36,7 +66,7 @@ h1 {
 	color: $cherry;
 	font-size: 6em;
 	margin: 0.2em 0;
-	line-height: 1em;
+	line-height: 1.1em;
 }
 
 h2 {
@@ -53,6 +83,10 @@ h3 {
 	font-weight: 800;
 }
 
+p {
+	margin: 0 0 0.3em;
+}
+
 a {
 	color: inherit;
 	&:hover, &:active, &:focus {
@@ -67,20 +101,20 @@ a {
 	text-align: center;
 	width: 100%;
 	color: $vanilla;
-	text-shadow: 0 3px 0 $dark_mint;
+	text-shadow: 0 $text_shadow_distance 0 $dark_mint;
 	position: relative;
-	font-size: 8em;
+	font-size: 7em;
 	margin: 0.3em 0;
 }
 
 .button {
 	background-color: $orange;
-	box-shadow: 0 3px 0 $dark_vanilla;
+	box-shadow: 0 $text_shadow_distance 0 $dark_vanilla;
 	font-weight: 800;
-	padding: 30px;
+	padding: 0.8em;
 	text-align: center;
-	text-shadow: 0 3px $dark_orange;
-	font-size: 3em;
+	text-shadow: 0 $text_shadow_distance $dark_orange;
+	font-size: 3.5em;
 	color: $vanilla;
 	margin: 20px;
 	display: block;
@@ -89,9 +123,6 @@ a {
 	line-height: 1.2em;
 	word-wrap: break-word;
 
-	p {
-		margin-top: 10px;
-	}
 	small {
 		display: block;
 		font-size: 0.5em;
@@ -108,14 +139,13 @@ input.button {
 	border: none;
 	display: block;
 	/*padding: 11px 30px;*/
-	font-size: 3em;
 	width: 300px;
 	width: 100%;
 }
 
 li .button {
 	background-color: $mint;
-	text-shadow: 0 3px 0 $dark_mint;
+	text-shadow: 0 $text_shadow_distance 0 $dark_mint;
 	&:hover, &:active, &:focus {
 		background-color: $dark_mint;
 	}
@@ -156,7 +186,7 @@ li .button {
 
 .button-cancel, li .button-cancel {
 	background-color: $cherry;
-	text-shadow: 0 3px 0 $dark_cherry;
+	text-shadow: 0 $text_shadow_distance 0 $dark_cherry;
 	&:hover {
 		background-color: $dark_cherry;
 	}
@@ -164,7 +194,7 @@ li .button {
 
 .button-action, li .button-action {
 	background-color: $orange;
-	text-shadow: 0 3px 0 $dark_orange;
+	text-shadow: 0 $text_shadow_distance 0 $dark_orange;
 	&:hover {
 		background-color: $dark_orange;
 	}
@@ -188,7 +218,7 @@ label {
 input[type='text'], textarea {
 	background-color: $chocolate;
 	color: $vanilla;
-	text-shadow: 0 3px 0 $dark_chocolate;
+	text-shadow: 0 $text_shadow_distance 0 $dark_chocolate;
 	width: 100%;
 	font-size: 3em;
 	height: auto;
@@ -197,18 +227,18 @@ input[type='text'], textarea {
 	line-height: 1em;
 	border-radius: 0;
 	border: none;
-	box-shadow: 0 3px 0 $dark_vanilla;
+	box-shadow: 0 $text_shadow_distance 0 $dark_vanilla;
 	padding: 20px;
 	&:active, &:focus {
 		outline: none;
-		box-shadow: 0 3px 0 $dark_vanilla;
+		box-shadow: 0 $text_shadow_distance 0 $dark_vanilla;
 	}
 }
 
 .errors {
 	background-color: $cherry;
 	font-size: 2em;
-	text-shadow: 0 3px 0 $dark_cherry;
+	text-shadow: 0 $text_shadow_distance 0 $dark_cherry;
 	color: $vanilla;
 	padding: 20px;
 	line-height: 1em;
@@ -233,8 +263,9 @@ input[type='text'], textarea {
 		&[type='submit'] {
 			position: absolute;
 			top: 0;
+			bottom: 0;
 			right: 0;
-			padding: 10px 28px;
+			padding: 0 0.7em;
 			font-size: 4em;
 			line-height: 1.36em;
 		}
@@ -257,9 +288,9 @@ input[type='text'], textarea {
 	padding: 0;
 	border: 0;
 	opacity: 1;
-	box-shadow: 0 3px 0 $dark_vanilla;
+	box-shadow: 0 $text_shadow_distance 0 $dark_vanilla;
 	outline: none;
-	text-shadow: 0 3px 0 $dark_orange;
+	text-shadow: 0 $text_shadow_distance 0 $dark_orange;
 
 	&.left, &.right {
 		background-image: none;
@@ -273,7 +304,7 @@ input[type='text'], textarea {
 }
 
 .carousel {
-	padding: 0 100px;
+	padding: 0 6.5em;
 	position: relative;
 
 	.poll-chart-container {
@@ -281,34 +312,34 @@ input[type='text'], textarea {
 	}
 
 	canvas {
-		margin: 30px 200px;
+		margin: 3em 0;
 	}
 
 	.poll-choice {
 		&:nth-child(4n + 1) .button {
 			background-color: $chocolate;
-			text-shadow: 0 3px 0 $dark_chocolate;
+			text-shadow: 0 $text_shadow_distance 0 $dark_chocolate;
 			&:hover, &:active, &:focus {
 				background-color: $dark_chocolate;
 			}
 		}
 		&:nth-child(4n + 2) .button {
 			background-color: $orange;
-			text-shadow: 0 3px 0 $dark_orange;
+			text-shadow: 0 $text_shadow_distance 0 $dark_orange;
 			&:hover, &:active, &:focus {
 				background-color: $dark_orange;
 			}
 		}
 		&:nth-child(4n + 3) .button {
 			background-color: $mint;
-			text-shadow: 0 3px 0 $dark_mint;
+			text-shadow: 0 $text_shadow_distance 0 $dark_mint;
 			&:hover, &:active, &:focus {
 				background-color: $dark_mint;
 			}
 		}
 		&:nth-child(4n + 4) .button {
 			background-color: $cherry;
-			text-shadow: 0 3px 0 $dark_cherry;
+			text-shadow: 0 $text_shadow_distance 0 $dark_cherry;
 			&:hover, &:active, &:focus {
 				background-color: $dark_cherry;
 			}
@@ -320,7 +351,7 @@ input[type='text'], textarea {
 footer {
 	font-family: 'Kavoon', 'Times', serif;
 	background-color: $mint;
-	box-shadow: 0 3px 0 $dark_vanilla;
+	box-shadow: 0 $text_shadow_distance 0 $dark_vanilla;
 	position: relative;
 	text-align: right;
 	padding: 10px 20px;
@@ -328,9 +359,10 @@ footer {
 
 	a {
 		color: $vanilla;
-		text-shadow: 0 3px 0 $dark_mint;
+		text-shadow: 0 $text_shadow_distance 0 $dark_mint;
 		font-size: 3em;
 		line-height: 1em;
+		font-weight: 100;
 		&:hover, &:active, &:focus {
 			color: $dark_vanilla;
 		}
