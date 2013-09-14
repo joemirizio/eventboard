@@ -5,7 +5,7 @@
 		<%= link_to overview_event_path(event), class: 'button' do %>
 			<p><%= event.name %></p><small><%= event.description %></small>
 		<% end %>
-		<%= link_to '#', event, class: 'button button-action' %>
+		<%= link_to '', event, class: 'button button-action glyphicon glyphicon-pencil' %>
 	</li>
 <% end %>
 <% if @events.empty? %>

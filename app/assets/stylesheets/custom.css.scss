@@ -19,11 +19,12 @@ body {
 }
 
 .container {
-	margin-top: 20px;
+	margin-top: 1em;
 }
 
 ul {
 	margin-left: 0;
+	padding-left: 0;
 }
 li {
 	list-style: none;
@@ -34,16 +35,18 @@ h1 {
 	font-family: 'Kavoon', 'Times', serif;
 	color: $cherry;
 	font-size: 6em;
-	margin: 30px 0 50px;
+	margin: 0.2em 0;
 	line-height: 1em;
 }
 
 h2 {
+	font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
 	font-weight: 800;
 	font-size: 3em;
 }
 
 h3 {
+	font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
 	margin: 0 0 50px;
 	font-size: 2.5em;
 	font-style: italic;
@@ -66,6 +69,8 @@ a {
 	color: $vanilla;
 	text-shadow: 0 3px 0 $dark_mint;
 	position: relative;
+	font-size: 8em;
+	margin: 0.3em 0;
 }
 
 .button {
@@ -81,15 +86,16 @@ a {
 	display: block;
 	width: 300px;
 	float: left;
-	line-height: 1em;
+	line-height: 1.2em;
+	word-wrap: break-word;
 
 	p {
 		margin-top: 10px;
-		line-height: 0.5em;
 	}
 	small {
+		display: block;
 		font-size: 0.5em;
-		line-height: 0.5em;
+		line-height: 1.2em;
 	}
 	&:hover, &:active, &:focus {
 		background-color: $dark_orange;
@@ -122,12 +128,13 @@ li .button {
 	margin: 10px 0;
 
 	.button:nth-child(1) {
-		width: 795px;
+		width: 100%;
+		padding-right: 2.8em;
 		margin: 0;
 	}
 	.button:nth-child(2) {
 		margin: 0;
-		width: 25px;
+		width: auto;
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -224,14 +231,16 @@ input[type='text'], textarea {
 		float: left;
 		margin: 0;
 		&[type='submit'] {
-			padding: 20px 30px;
-			font-size: 3em;
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 10px 28px;
+			font-size: 4em;
 			line-height: 1.36em;
 		}
 		&[type='text'] {
-			// TODO Make fluid
-			padding: 20px;
-			width: 815px;
+			padding: 20px 100px 20px 20px;
+			width: 100%;
 		}
 	}
 }
@@ -240,17 +249,21 @@ input[type='text'], textarea {
 	top: 20px;
 	background-color: $orange;
 	font-weight: 800;
-	font-size: 7em;
-	height: 50px;
-	width: 50px;
+	font-size: 8em;
+	line-height: 0.5em;
+	height: 0.72em;
+	width: 0.72em;
 	border-radius: 0;
-	padding: 10px;
+	padding: 0;
 	border: 0;
 	opacity: 1;
 	box-shadow: 0 3px 0 $dark_vanilla;
 	outline: none;
 	text-shadow: 0 3px 0 $dark_orange;
 
+	&.left, &.right {
+		background-image: none;
+	}
 	&:hover, &:active, &:focus {
 		outline: none;
 		background-color: $dark_orange;
@@ -263,11 +276,15 @@ input[type='text'], textarea {
 	padding: 0 100px;
 	position: relative;
 
-	canvas {
-		margin: 20px 200px;
+	.poll-chart-container {
+		text-align: center;
 	}
 
-	& .poll-choice {
+	canvas {
+		margin: 30px 200px;
+	}
+
+	.poll-choice {
 		&:nth-child(4n + 1) .button {
 			background-color: $chocolate;
 			text-shadow: 0 3px 0 $dark_chocolate;
