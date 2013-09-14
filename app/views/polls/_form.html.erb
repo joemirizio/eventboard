@@ -1,3 +1,14 @@
+<% if @poll and @poll.errors.any? %>
+	<div class='errors'>
+		<p>There were <%= pluralize(@poll.errors.count, 'error') %></p>
+		<ul>
+			<% @poll.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+
 <%= form_for @poll do |f| %>
 	<%= f.label 'Question' %>
 	<%= f.text_field :question, class: 'input-block-level', placeholder: 'New Poll' %>

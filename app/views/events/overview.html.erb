@@ -4,10 +4,10 @@
 
 <h1><%= @event.name %></h1>
 <% unless @event.polls.empty? %>
-	<div id="myCarousel" class="carousel slide">
+	<div id="poll-carousel" class="carousel slide">
 		<!--<ol class="carousel-indicators">
 			<% (0..@event.polls.length).each do |i| %>
-				<li data-target="#myCarousel" data-slide-to="<%= i %>" 
+				<li data-target="#poll-carousel" data-slide-to="<%= i %>" 
 				class="<%= 'active' if i == 0 %>"></li>
 			<% end %>
 		</ol>-->
@@ -23,7 +23,7 @@
 							<% poll.choices.each_with_index do |choice, choice_index| %>
 								<li class="poll-choice" id="choice-<%= choice.id %>" data-name="<%= choice.name %>" data-votes="<%= choice.votes %>">
 									<% choice_label = "#{choice.name} (#{choice.votes})" %>
-									<%= form_for choice, method: :post, url: vote_choice_path(choice) do |f| %>
+									<%= form_for choice, method: :post, remote: true, url: vote_choice_path(choice) do |f| %>
 										<%= f.hidden_field :poll_index, value: poll_index %>
 										<%= f.submit choice_label, class: 'button button-block' %>
 									<% end %>
@@ -40,8 +40,8 @@
 			<% end %>
 		</div>
 		<!-- Carousel nav -->
-		<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-		<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+		<a class="carousel-control left" href="#poll-carousel" data-slide="prev">&lsaquo;</a>
+		<a class="carousel-control right" href="#poll-carousel" data-slide="next">&rsaquo;</a>
 	</div>
 <% else %>
 	<div class='errors'>

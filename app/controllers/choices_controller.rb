@@ -18,13 +18,20 @@ class ChoicesController < ApplicationController
 
 	def vote
 		@choice = Choice.find(params[:id])
-		@choice.votes += 1;
+		@choice.votes += 1
 		@choice.save()
 
-		@poll_index = params[:choice][:poll_index]
+		respond_to do |format|
+			format.html {
+				@poll_index = params[:choice][:poll_index]
 
-		@event = @choice.poll.event
-		render 'events/overview'
+				@event = @choice.poll.event
+				render 'events/overview'
+			}
+			format.js {
+				render json: @choice, content_type: 'application/json'
+			}
+		end
 	end
 
 private
