@@ -12,13 +12,18 @@ Other features include:
 
 ###REST API
 Show all events
-```GET /events.{xml,json}```
+```
+GET /events.{xml,json}
+```
 
 Show event details
-```GET /events/[event_id].{xml,json}```
+```
+GET /events/[event_id].{xml,json}
+```
 
 Show poll details
-```GET /polls/[poll_id].{xml,json}```
+```
+GET /polls/[poll_id].{xml,json}
+```
 
-
-This software is released under the MIT Licence
+This software is released under the MIT License
