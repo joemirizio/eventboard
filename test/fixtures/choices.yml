@@ -1,0 +1,6 @@
+<% 150.times do |i| %>
+choice_<%= i %>:
+    name: 'Choice <%= i %>'
+    poll: 'poll_<%= i / 5 %>'
+    votes: 0
+<% end %>

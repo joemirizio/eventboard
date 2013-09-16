@@ -2,6 +2,11 @@ class PollsController < ApplicationController
 
 	def show
 		@poll = Poll.find(params[:id])
+		respond_to do |format|
+			format.html
+			format.json { render json: @poll }
+			format.xml { render xml: @poll }
+		end
 	end
 
 	def create

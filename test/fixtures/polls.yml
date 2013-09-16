@@ -1,0 +1,5 @@
+<% 30.times do |i| %>
+poll_<%= i %>:
+    question: 'Poll <%= i %>'
+    event: 'event_<%= i / 3 %>'
+<% end %>

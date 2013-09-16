@@ -18,12 +18,14 @@ class ChoicesController < ApplicationController
 
 	def vote
 		@choice = Choice.find(params[:id])
-		@choice.votes += 1
+		@choice.vote()
 		@choice.save()
 
 		respond_to do |format|
 			format.html {
-				@poll_index = params[:choice][:poll_index]
+				if params[:choice] and params[:choice][:poll_index]
+					@poll_index = params[:choice][:poll_index]
+				end
 
 				@event = @choice.poll.event
 				render 'events/overview'

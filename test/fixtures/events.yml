@@ -1,0 +1,5 @@
+<% 10.times do |i| %>
+event_<%= i %>:
+    name: 'Event <%= i %>'
+    description: 'A test event'
+<% end %>
