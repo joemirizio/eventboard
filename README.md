@@ -10,5 +10,15 @@ Other features include:
 * Responsive display via [Bootstrap 3](http://getbootstrap.com/) and CSS media queries
 * Beautiful charts via [Chart.js](http://www.chartjs.org/)
 
+###REST API
+Show all events
+```GET /events.{xml,json}```
+
+Show event details
+```GET /events/[event_id].{xml,json}```
+
+Show poll details
+```GET /polls/[poll_id].{xml,json}```
+
 
 This software is released under the MIT Licence
