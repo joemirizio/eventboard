@@ -1,6 +1,6 @@
 <h1><%= @event.name %></h1>
 <% unless @event.polls.empty? %>
-	<div id="poll-carousel" class="carousel slide">
+	<div id="poll-carousel" class="carousel slide" data-interval="5000" data-pause="hover">
 		<!--<ol class="carousel-indicators">
 			<% (0..@event.polls.length).each do |i| %>
 				<li data-target="#poll-carousel" data-slide-to="<%= i %>" 

@@ -1,25 +1,29 @@
 $(function () {
 
-	var options = {
-		segmentShowStroke: true,
-		segmentStrokeColor : '#d4d0a4',
-		segmentStrokeWidth : 3,
-		animationEasing : 'easeOutQuart',
+	// Auto-start carousel
+	$('.carousel').carousel();
+
+	// Chart configuration
+	var chart_config = {
+		options: {
+			segmentShowStroke: true,
+			segmentStrokeColor : '#d4d0a4',
+			segmentStrokeWidth : 3,
+			animationEasing : 'easeOutQuart',
+		},
+		colors: [
+			'#635642',
+			'#e99500',
+			'#7cab91',
+			'#b15637',
+		]
 	};
 
-	var colors = [
-		'#635642',
-		'#e99500',
-		'#7cab91',
-		'#b15637',
-	];
-
-
 	/**
-	 * Update the poll
+	 * Redraw the poll chart
 	 * @param poll_container {HTMLDivElement} Containing div of the poll
 	 */
-	var update_poll = function(poll_container) {
+	var redraw_poll = function(poll_container) {
 		var canvas = $('.poll-chart', poll_container).get(0);
 		if (typeof canvas === 'undefined') { 
 			console.error('Could not find canvas');
@@ -27,15 +31,23 @@ $(function () {
 		}
 		var ctx = canvas.getContext('2d');
 		var data = [];
+		var has_votes = false;
 		$('.poll-choice', poll_container).each(function () {
 			var votes = parseInt($(this).data('votes'), 10);
-			data.push({ value: votes, color: colors[data.length % colors.length] });
+			has_votes = has_votes || (votes > 0);
+			color = chart_config.colors[data.length % chart_config.colors.length];
+			data.push({value: votes, color: color});
 		});
-		var vote_chart = new Chart(ctx).Pie(data, options);
+		if (has_votes) {
+			var vote_chart = new Chart(ctx).Pie(data, chart_config.options);
+		} else {
+			ctx.font = "18pt Open Sans";
+			ctx.fillText("No votes were made :(", 0, 150);
+		}
 	};
 	
 	$('.poll-chart-container').each(function () {
-		update_poll(this);
+		redraw_poll(this);
 	});
 	
 
@@ -49,13 +61,13 @@ $(function () {
 			return text.replace(/\((\d*)\)$/, ['(', data.votes, ')'].join(''));
 		});
 
-		update_poll(poll_container);
+		redraw_poll(poll_container);
 	});
 
 	// Redraw the poll animation when the poll comes in to view
 	$('#poll-carousel').on('slid.bs.carousel', function () {
 		var poll_container = $('.item.active', this);
-		update_poll(poll_container);
+		redraw_poll(poll_container);
 	});
 
 });
