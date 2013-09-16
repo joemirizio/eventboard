@@ -4,6 +4,10 @@ class Choice < ActiveRecord::Base
   belongs_to :poll
 	before_save :default_values
 
+	def vote
+		self.votes += 1
+	end
+
 private
 	def default_values
 		self.votes ||= 0
