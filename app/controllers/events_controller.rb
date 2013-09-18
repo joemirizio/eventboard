@@ -13,7 +13,7 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 		respond_to do |format|
 			format.html
-			format.json { render json: @event }
+			format.json { render json: @event, include: [:polls] }
 			format.xml { render xml: @event }
 		end
 	end
