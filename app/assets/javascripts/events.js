@@ -26,7 +26,6 @@ $(function () {
 	var redraw_poll = function(poll_container) {
 		var canvas = $('.poll-chart', poll_container).get(0);
 		if (typeof canvas === 'undefined') { 
-			console.error('Could not find canvas');
 			return false;
 		}
 		var ctx = canvas.getContext('2d');
