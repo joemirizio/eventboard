@@ -9,6 +9,7 @@ Other features include:
 * Unique flat design
 * Responsive display via [Bootstrap 3](http://getbootstrap.com/) and CSS media queries
 * Beautiful charts via [Chart.js](http://www.chartjs.org/)
+* Unit, Functional, and Integration tested code!
 
 ###REST API
 Show all events
